@@ -51,7 +51,7 @@ function onLoad() {
     zoom: 5,
     smartNavigation: false
   });
-  curZoom = getIconZoom(5);
+  curZoom = getIconZoom(3);
 
   // Create the help buttons in bottom-left of map
   Help = L.popup()
@@ -65,13 +65,13 @@ function onLoad() {
   setTimeout(displayHelp, 1000);
 
   // Add layer control
-  var ngLayer = L.esri.basemapLayer("NationalGeographic");
+  var ngLayer = L.esri.basemapLayer("Streets");
   ngLayer.addTo(Map);
 
   var baseMaps = {
     Streets:            L.esri.basemapLayer("Streets"),
     Topographic:        L.esri.basemapLayer("Topographic"),
-    NationalGeographic: ngLayer,
+    NationalGeographic: L.esri.basemapLayer("NationalGeographic"),
     Oceans:             L.esri.basemapLayer("Oceans"),
     Gray:               L.esri.basemapLayer("Gray"),
     DarkGray:           L.esri.basemapLayer("DarkGray"),

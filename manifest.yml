@@ -5,7 +5,7 @@ declared-services:
     plan: Free-v2
 applications:
 - name:       capital-weather
-  host:       capital-weather
+  host:       tcwaservice
   framework: node
   memory:     256M
   instances:  1
