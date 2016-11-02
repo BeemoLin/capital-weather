@@ -30,12 +30,13 @@ capitalsLeft = Locations.length-1;
 function onLoad() {
 
   // Inject 'Fork me on GitHub' banner into map UI
+  /*
   setTimeout(function(){
     var forkNode = document.createElement("div");
     forkNode.innerHTML = '<a href=\"https://github.com/IBM-Bluemix/capital-weather\"><img style=\"position: absolute; top: 0; right: 0; border: 0;\" src=\"https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67\" alt=\"Fork me on GitHub\" data-canonical-src=\"https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png\"></a>';
     $(".leaflet-control-container")[0].appendChild(forkNode);
   }, 1000);
-
+  */
   // Determines what type of weather service is being used (TWC or Weather Insights)
   $.ajax("/api/serviceType", {
     dataType: "json",
@@ -48,7 +49,7 @@ function onLoad() {
   // Initialize map in a disabled state
   Map = L.map("map", {
     doubleClickZoom: false,
-    zoom: 5,
+    zoom: 3,
     smartNavigation: false
   });
   curZoom = getIconZoom(3);
@@ -62,7 +63,7 @@ function onLoad() {
     .setContent(getKeyHTML());
   createHelpBtn("key", "Key", displayKey);
 
-  setTimeout(displayHelp, 1000);
+  //setTimeout(displayHelp, 1000);
 
   // Add layer control
   var ngLayer = L.esri.basemapLayer("Streets");
@@ -83,8 +84,8 @@ function onLoad() {
 
   // Fit map to initial bounds
   var bounds = [
-    { lat: 44.32, lon:  -69.76 }, // maine
-    { lat: 38.55, lon: -121.46 }, // california
+    { lat: 20.78, lon:  -156.99 }, // maine
+    { lat: 23.55, lon: 165.85 }, // california
   ];
   Map.fitBounds(bounds, {padding:[0,0]});
 
